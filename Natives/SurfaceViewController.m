@@ -260,7 +260,7 @@ self.view.frame.size.width * 0.3 - 36.0 * 0.7, self.view.frame.size.height)];
 
             [button addTarget:self action:@selector(executebtn_down:) forControlEvents:UIControlEventTouchDown];
             [button addTarget:self action:@selector(executebtn_up:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
-            NSLog(@"Added control event for button %@", button);
+            NSLog(@"Debug: Added control event for button %@. userInteractionEnabled=%d", button, button.userInteractionEnabled);
 
             if (isSwipeable) {
                 UIPanGestureRecognizer *panRecognizerButton = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(executebtn_swipe:)];
@@ -813,6 +813,7 @@ int inputStringLength = INPUT_FULL_LENGTH;
 
 int currentVisibility = 1;
 - (void)executebtn:(UIButton *)sender withAction:(int)action {
+    NSLog(@"Debug: [SurfaceViewController executebtn:%@ withAction:%d", sender, action);
     ControlButton *button = (ControlButton *)sender;
     int held = action == ACTION_DOWN;
     for (int i = 0; i < 4; i++) {
@@ -865,6 +866,7 @@ int currentVisibility = 1;
                     if (!held) {
                         CallbackBridge_nativeSendScroll(0.0, -1.0);
                     }
+                    break;
 
                 case SPECIALBTN_VIRTUALMOUSE:
                     if (!isGrabbing && !held) {
