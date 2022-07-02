@@ -260,6 +260,7 @@ self.view.frame.size.width * 0.3 - 36.0 * 0.7, self.view.frame.size.height)];
 
             [button addTarget:self action:@selector(executebtn_down:) forControlEvents:UIControlEventTouchDown];
             [button addTarget:self action:@selector(executebtn_up:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchUpOutside];
+            NSLog(@"Added control event for button %@", button);
 
             if (isSwipeable) {
                 UIPanGestureRecognizer *panRecognizerButton = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(executebtn_swipe:)];

@@ -203,6 +203,8 @@ void callback_SurfaceViewController_launchMinecraft(int width, int height) {
 */
 
 void callback_SurfaceViewController_onTouch(int event, CGFloat x, CGFloat y) {
+    NSLog(@"%s: onTouch ready=%d", isInputReady);
+
     if (!isInputReady) return;
 
     if (!runtimeJNIEnvPtr) {
@@ -258,6 +260,7 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeSetInputRead
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeSetGrabbing(JNIEnv* env, jclass clazz, jboolean grabbing, jfloat xset, jfloat yset) {
+    NSLog(@"%s: Set grabbing to %d", __FUNC__, grabbing);
     isGrabbing = grabbing;
     if (isGrabbing == JNI_TRUE) {
         grabCursorX = xset; // savedWidth / 2;
@@ -322,6 +325,7 @@ JNIEXPORT void JNICALL Java_org_lwjgl_glfw_CallbackBridge_nativeSendCursorEnter(
 }
 */
 void CallbackBridge_nativeSendCursorPos(CGFloat x, CGFloat y) {
+    NSLog(@"%s: method=%p, isInputReady=%d", __FUNC__, GLFW_invoke_CursorPos, isInputReady);
     if (GLFW_invoke_CursorPos && isInputReady) {
         if (!isCursorEntered) {
             if (GLFW_invoke_CursorEnter) {
@@ -372,6 +376,8 @@ void CallbackBridge_nativeSendKey(int key, int scancode, int action, int mods) {
             GLFW_invoke_Key((void*) showingWindow, key, scancode, action, mods);
         }
     }
+
+    NSLog(@"%s: Key=%p, isInputReady=%@", __FUNC__, GLFW_invoke_Key, isInputReady);
 }
 
 void CallbackBridge_nativeSendKeycode(int keycode, char keychar, int scancode, int action, int mods) {
