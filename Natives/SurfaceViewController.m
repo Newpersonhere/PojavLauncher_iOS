@@ -297,6 +297,8 @@ self.view.frame.size.width * 0.3 - 36.0 * 0.7, self.view.frame.size.height)];
 
     [self.rootView addSubview:self.inputView];
 
+    [self.rootView becomeFirstResponder];
+
 /*
     self.logOutputView = [[UIView alloc] initWithFrame:self.view.frame];
     self.logOutputView.hidden = YES;
