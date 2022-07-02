@@ -97,6 +97,7 @@ BOOL slideableHotbar;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     viewController = self;
     isControlModifiable = NO;
 
@@ -133,8 +134,7 @@ BOOL slideableHotbar;
     UIPanGestureRecognizer *menuPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleRightEdge:)];
     menuPanGesture.delegate = self;
 
-    UIView *menuSwipeLineView = [[UIView alloc] initWithFrame:CGRectMake(11.0, self.view.frame.size.height/2 - 100.0, 
-8.0, 200.0)];
+    UIView *menuSwipeLineView = [[UIView alloc] initWithFrame:CGRectMake(11.0, self.view.frame.size.height/2 - 100.0, 8.0, 200.0)];
     menuSwipeLineView.backgroundColor = UIColor.whiteColor;
     menuSwipeLineView.layer.cornerRadius = 4;
     menuSwipeLineView.userInteractionEnabled = NO;
