@@ -92,6 +92,8 @@ BOOL slideableHotbar;
 
 @end
 
+#define rootView view
+
 @implementation SurfaceViewController
 
 - (void)viewDidLoad
@@ -122,8 +124,8 @@ BOOL slideableHotbar;
     savedWidth = roundf(screenBounds.size.width * screenScale);
     savedHeight = roundf(screenBounds.size.height * screenScale);
 
-    self.rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width + 30.0, self.view.frame.size.height)];
-    [self.view addSubview:self.rootView];
+    //self.rootView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width + 30.0, self.view.frame.size.height)];
+    //[self.view addSubview:self.rootView];
 
 
     // Side menu
