@@ -895,6 +895,7 @@ CallbackBridge_nativeSendKey(keycode, 0, held, 0);
 
 - (void)executebtn_down:(ControlButton *)sender
 {
+    abort();//debug
     [self executebtn:sender withAction:ACTION_DOWN];
     if ([self.swipeableButtons containsObject:sender]) {
         self.swipingButton = sender;
@@ -958,6 +959,7 @@ int touchesMovedCount;
 // Equals to Android ACTION_DOWN
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    abort();//debug
     [super touchesBegan:touches withEvent:event];
     int i = 0;
     for (UITouch *touch in touches) {
