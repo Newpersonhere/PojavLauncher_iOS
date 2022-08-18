@@ -23,18 +23,6 @@ jobs:
           export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
           gmake -j$(sysctl -n hw.ncpu) ipa
 
-      - name: Upload regular artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: net.kdt.pojavlauncher.release_iphoneos-arm.deb
-          path: artifacts/net.kdt.pojavlauncher.*_iphoneos-arm.deb
-          
-      - name: Upload rootless artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: net.kdt.pojavlauncher.release-rootless_iphoneos-arm.deb
-          path: artifacts/net.kdt.pojavlauncher.*_iphoneos-arm64.deb
-
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v2
         with:
