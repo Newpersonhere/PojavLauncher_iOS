@@ -69,7 +69,7 @@ DIRCHECK   = \
 	if [ ! -d '$(1)' ]; then \
 		mkdir $(1); \
 	else \
-		f [ '$(NOSTDIN)' = '1' ]; then \
+		if [ '$(NOSTDIN)' = '1' ]; then \
 			echo '$(SUDOPASS)' | sudo -S rm -rf $(1)/*; \
 		else \
 			sudo rm -rf $(1)/*; \
