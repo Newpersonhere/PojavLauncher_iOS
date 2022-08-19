@@ -13,7 +13,7 @@ jobs:
           password: ${{ secrets.ELLIE_MINI_SECRET }}
         run: |
           echo $(pwd)
-          echo $password | sudo -S rm -rf /Users/eilionoir/actions/actions-*/_work/PojavLauncher_iOS/PojavLauncher_iOS/*
+          echo $password | sudo -S rm -rf ./*
           
       - name: Checkout repository
         uses: actions/checkout@v2
