@@ -12,8 +12,13 @@ jobs:
         env:
           password: ${{ secrets.ELLIE_MINI_SECRET }}
         run: |
-          echo $(pwd)
-          echo $password | sudo -S rm -rf ./*
+          echo "before"
+          ls -lah ./
+          echo $password | sudo -S rm -rf ./* || true
+          echo $password | sudo -S rm -rf ./.??* || true
+          echo "after"
+          ls -lah ./
+          
           
       - name: Checkout repository
         uses: actions/checkout@v2
