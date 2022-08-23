@@ -64,9 +64,9 @@ public class PojavLauncher {
         if (System.getProperty("pojav.internal.keepForgeSplash") == null) {
             forgeSplashFile.getParentFile().mkdir();
             if (forgeSplashFile.exists()) {
-                Tools.write(forgeSplashFile.getAbsolutePath(), Tools.read(forgeSplashFile.getAbsolutePath().replace("enabled=true", "enabled=false")));
+                Tools.write(forgeSplashFile.getAbsolutePath(), Tools.read(forgeSplashFile.getAbsolutePath().replace("enabled=true", "enabled=true")));
             } else {
-                Tools.write(forgeSplashFile.getAbsolutePath(), "enabled=false");
+                Tools.write(forgeSplashFile.getAbsolutePath(), "enabled=true");
             }
         }
 
